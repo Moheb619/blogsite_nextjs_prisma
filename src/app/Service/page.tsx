@@ -8,8 +8,9 @@ const Service = () => {
 
   const fetchData = async () => {
     try {
-      const res = await axios.get(`https://agency.teamrabbil.com/api/AllService`);
-      setData(res.data);
+      let res = await axios.get(`/api/service`);
+      console.log(res.data.services);
+      setData(res.data.services);
     } catch (error) {
       console.error("Error fetching services:", error);
     }
@@ -25,10 +26,10 @@ const Service = () => {
       </div>
       <div className="space-y-2">
         <div className="flex pt-20 justify-center flex-wrap gap-8">
-          {data.slice(0, 4).map((item: any, index: number) => (
+          {data.map((item: any, index: number) => (
             <div key={index} className="flex shadow-xl rounded-lg p-3 flex-col space-y-4 items-center pt-10">
               <p className="text-xl font-bold">{item.title}</p>
-              <p className="break-words w-[450px] text-start">{item.des}</p>
+              <p className="break-words w-[450px] text-center">{item.des}</p>
             </div>
           ))}
         </div>

@@ -24,12 +24,10 @@ const Blog = () => {
         {/* Post Start */}
         {newPost.map((post: any) => (
           <div key={post.id} className="card card-compact w-60 bg-base-100 shadow-xl m-5">
-            <Link href={`Post/${post.id}`}>
-              <div className="card-body">
-                <h2 className="card-title">{post.title}</h2>
-                <p>{post.short}</p>
-              </div>
-            </Link>
+            <div className="card-body">
+              <h2 className="card-title">{post.title}</h2>
+              <p>{post.short}</p>
+            </div>
           </div>
         ))}
         {/* Post End */}

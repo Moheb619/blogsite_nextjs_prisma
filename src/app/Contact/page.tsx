@@ -25,7 +25,7 @@ const Contact = () => {
         },
       });
       reset();
-      alert("Form Submitted Successfully");
+      alert("Contact Form Submitted Successfully");
     } catch (error: any) {
       alert("Form Invalid");
     }

@@ -21,8 +21,8 @@ const About = () => {
     <div>
       {" "}
       <h1 className="font-bold text-[2rem] text-center">About Us</h1>
-      <div className="container md:grid grid-cols-3 md:ml-[10rem] place text-center mx-auto px-20">
-        <div className="flex flex-col w-[100%] w-full space-y-4 items-center pt-10">
+      <div className="container md:grid grid-cols-3 place text-center mx-auto px-20">
+        <div className="flex flex-col w-[100%] space-y-4 items-center pt-10 px-5 border">
           <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
               fillRule="evenodd"
@@ -35,7 +35,7 @@ const About = () => {
           <p className="text-xl font-bold">{about[0].title}</p>
           <p className="text-lg text-center">{about[0].des}</p>
         </div>
-        <div className="flex flex-col w-[100%] space-y-4 items-center pt-10">
+        <div className="flex flex-col w-[100%] space-y-4 items-center pt-10 px-5 border">
           <svg width="34" height="32" viewBox="0 0 34 32" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
               fillRule="evenodd"
@@ -48,7 +48,7 @@ const About = () => {
           <p className="text-xl font-bold">{about[1].title}</p>
           <p className="text-lg text-center">{about[1].des}</p>
         </div>
-        <div className="flex flex-col w-[100%] space-y-4 items-center pt-10">
+        <div className="flex flex-col w-[100%] space-y-4 items-center pt-10 px-5 border">
           <svg width="34" height="32" viewBox="0 0 34 32" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
               fillRule="evenodd"

@@ -25,7 +25,7 @@ const Registration = () => {
         },
       });
       reset();
-      alert("Form Submitted Successfully");
+      alert("User Registered Successfully");
     } catch (error: any) {
       alert("Form Invalid");
     }

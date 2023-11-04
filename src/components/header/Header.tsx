@@ -26,10 +26,10 @@ const Header = () => {
             <Link href={"/Contact"}>Contact</Link>
           </li>
           <li>
-            <Link href={"/Login"}>Login</Link>
+            <Link href={"/Registration"}>Registration</Link>
           </li>
           <li>
-            <Link href={"/Registration"}>Registration</Link>
+            <Link href={"/Dashboard"}>Dashboard</Link>
           </li>
           {/* <li>
             <details>
