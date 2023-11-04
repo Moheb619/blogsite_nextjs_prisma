@@ -4,7 +4,9 @@ const Header = () => {
   return (
     <div className="navbar bg-base-100">
       <div className="flex-1">
-        <a className="btn btn-ghost normal-case text-xl">Blog Service</a>
+        <Link href={"/"} className="btn btn-ghost normal-case text-xl">
+          Blog Service
+        </Link>
       </div>
       <div className="flex-none">
         <ul className="menu menu-horizontal px-1">
@@ -12,22 +14,22 @@ const Header = () => {
             <Link href={"/"}>Home</Link>
           </li>
           <li>
-            <Link href={"/"}>About</Link>
+            <Link href={"/About"}>About</Link>
           </li>
           <li>
-            <Link href={"/"}>Blogs</Link>
+            <Link href={"/Blog"}>Blogs</Link>
           </li>
           <li>
-            <Link href={"/"}>Services</Link>
+            <Link href={"/Service"}>Services</Link>
           </li>
           <li>
-            <Link href={"/"}>Contact</Link>
+            <Link href={"/Contact"}>Contact</Link>
           </li>
           <li>
-            <Link href={"/"}>Login</Link>
+            <Link href={"/Login"}>Login</Link>
           </li>
           <li>
-            <Link href={"/"}>Registration</Link>
+            <Link href={"/Registration"}>Registration</Link>
           </li>
           {/* <li>
             <details>

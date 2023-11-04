@@ -56,9 +56,6 @@ const HomeComponent = () => {
             {newPost.slice(randomNumber, randomNumber + 3).map((post: any) => (
               <div key={post.id} className="card card-compact w-60 bg-base-100 shadow-xl m-5">
                 <Link href={`Post/${post.id}`}>
-                  <figure>
-                    <img src={post.img} alt="Shoes" />
-                  </figure>
                   <div className="card-body">
                     <h2 className="card-title">{post.title}</h2>
                     <p>{post.short}</p>

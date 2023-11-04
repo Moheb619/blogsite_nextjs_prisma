@@ -1,0 +1,10 @@
+.blog_container {
+  text-align: center;
+  padding: 2.5rem; /* Assuming "p-10" in Tailwind is equivalent to 2.5rem */
+  overflow: hidden;
+}
+
+.blog_heading {
+  font-size: 2.25rem; /* Assuming "text-4xl" in Tailwind is equivalent to 2.25rem */
+  font-weight: bold;
+}
