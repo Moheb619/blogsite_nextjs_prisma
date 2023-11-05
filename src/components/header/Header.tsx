@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { signOut, useSession } from "next-auth/react";
 const Header = () => {
+  const session = useSession();
   return (
     <div className="navbar bg-base-100">
       <div className="flex-1">
@@ -47,12 +48,14 @@ const Header = () => {
           </li> */}
         </ul>
       </div>
-      <div>
-        {" "}
-        <button className="btn btn-primary" onClick={() => signOut()}>
-          Logout
-        </button>{" "}
-      </div>
+      {session.status === "authenticated" && (
+        <div>
+          {" "}
+          <button className="btn btn-primary" onClick={() => signOut()}>
+            Logout
+          </button>{" "}
+        </div>
+      )}
     </div>
   );
 };
