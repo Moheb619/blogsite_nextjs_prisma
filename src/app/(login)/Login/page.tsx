@@ -56,8 +56,8 @@ const Login = () => {
         <div className="space-y-2">
           <h2 className="text-4xl font-bold leadi lg:text-5xl">Log In To Dashboard</h2>
         </div>
-        <div className="space-y-2">
-          <h2 className="text-2xl font-bold leadi lg:text-5xl">Use This ID PASS to login to Dashboard</h2>
+        <div className="space-y-2 my-10">
+          <h2 className="text-xl font-bold leadi lg:text-xl">Use This ID PASS to login to Dashboard</h2>
           <p>Email: root@gmail.com</p>
           <p>Password: root</p>
         </div>
