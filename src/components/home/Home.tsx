@@ -10,8 +10,8 @@ const HomeComponent = () => {
   const [randomNumber, setRandomNumber] = useState<number>(0);
   const fetchContacts = async () => {
     try {
-      const res = await axios.get(`https://basic-blog.teamrabbil.com/api/post-newest`);
-      setNewPost(res.data);
+      const res = await axios.get(`/api/blog`);
+      setNewPost(res.data.blogs);
     } catch (error) {
       console.error("Error fetching contacts:", error);
     }
@@ -53,11 +53,11 @@ const HomeComponent = () => {
           <h1 className={`${styles.blog_heading}`}>Blogs</h1>
           <div className="flex flex-row flex-wrap justify-center">
             {/* Post Start */}
-            {newPost.slice(randomNumber, randomNumber + 3).map((post: any) => (
+            {newPost.slice(0, 3).map((post: any) => (
               <div key={post.id} className="card card-compact w-60 bg-base-100 shadow-xl m-5">
                 <div className="card-body">
                   <h2 className="card-title">{post.title}</h2>
-                  <p>{post.short}</p>
+                  <p>{post.des}</p>
                 </div>
               </div>
             ))}

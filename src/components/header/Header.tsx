@@ -1,5 +1,6 @@
+"use client";
 import Link from "next/link";
-
+import { signOut, useSession } from "next-auth/react";
 const Header = () => {
   return (
     <div className="navbar bg-base-100">
@@ -48,7 +49,9 @@ const Header = () => {
       </div>
       <div>
         {" "}
-        <button className="btn btn-primary">Logout</button>{" "}
+        <button className="btn btn-primary" onClick={() => signOut()}>
+          Logout
+        </button>{" "}
       </div>
     </div>
   );

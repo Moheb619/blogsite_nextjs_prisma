@@ -8,8 +8,8 @@ const Blog = () => {
   const [newPost, setNewPost] = useState([]);
   const fetchContacts = async () => {
     try {
-      const res = await axios.get(`https://basic-blog.teamrabbil.com/api/post-newest`);
-      setNewPost(res.data);
+      const res = await axios.get(`/api/blog`);
+      setNewPost(res.data.blogs);
     } catch (error) {
       console.error("Error fetching contacts:", error);
     }
@@ -26,7 +26,7 @@ const Blog = () => {
           <div key={post.id} className="card card-compact w-60 bg-base-100 shadow-xl m-5">
             <div className="card-body">
               <h2 className="card-title">{post.title}</h2>
-              <p>{post.short}</p>
+              <p>{post.des}</p>
             </div>
           </div>
         ))}

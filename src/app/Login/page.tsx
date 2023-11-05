@@ -2,7 +2,11 @@
 import Image from "next/image";
 import axios from "axios";
 import { useForm, SubmitHandler } from "react-hook-form";
-
+import { signIn, useSession } from "next-auth/react";
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 // Form input value's types
 type Inputs = {
   email: string;
@@ -10,6 +14,21 @@ type Inputs = {
 };
 
 const Login = () => {
+  const [toastMessage, setToastMessage] = useState<String>("");
+  const session = useSession();
+  const router = useRouter();
+  useEffect(() => {
+    if (toastMessage === "Logged in successfully!" && session.status === "authenticated") {
+      toast.success(toastMessage + " Redirecting to DASHBOARD");
+      setTimeout(function () {
+        router.push("/Dashboard");
+      }, 1500);
+    } else if ((toastMessage === "Invalid Credentials" && session.status === "unauthenticated") || !session.status) {
+      toast.error(toastMessage);
+    } else if (toastMessage === "" && session.status === "authenticated") {
+      router.push("/Login");
+    }
+  }, [session, router, toastMessage]);
   const {
     register,
     formState: { errors },
@@ -17,17 +36,18 @@ const Login = () => {
     reset,
   } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = (data) => {
-    try {
-      const res = axios.post("api/contacts", data, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      reset();
-      alert("Form Submitted Successfully");
-    } catch (error: any) {
-      alert("Form Invalid");
-    }
+    signIn("credentials", {
+      email: data.email,
+      password: data.password,
+      redirect: false,
+    }).then((callback) => {
+      if (callback?.error) {
+        setToastMessage("Invalid Credentials");
+      }
+      if (callback?.ok && !callback?.error) {
+        setToastMessage("Logged in successfully!");
+      }
+    });
   };
   return (
     <section id="contact" className="grid max-w-screen-xl grid-cols-1 gap-8 px-8 py-16 mx-auto rounded-lg md:grid-cols-2 md:px-12 lg:px-16 xl:px-32  text-black">
@@ -39,12 +59,7 @@ const Login = () => {
       <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
         <div>
           <label className="text-sm">Email</label>
-          <input
-            id="email"
-            type="email"
-            className="w-full p-3 rounded bg-gray-200"
-            {...register("email", { required: "Email is required", pattern: { value: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/, message: "Invalid Email" } })}
-          />
+          <input id="email" type="email" className="w-full p-3 rounded bg-gray-200" {...register("email", { required: "Email is required" })} />
           {errors.email && <p className="text-red-600 text-sm">{errors.email?.message}</p>}
         </div>
         <div>

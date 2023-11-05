@@ -21,32 +21,3 @@ export async function GET() {
     );
   }
 }
-
-export async function POST(req: Request) {
-  try {
-    const body = await req.json();
-    const res = await prisma.user.create({
-      data: {
-        fullname: body.fullname,
-        email: body.email,
-        phone: body.phone,
-      },
-    });
-    return NextResponse.json(
-      {
-        status: "success",
-        message: "User Created Successfully",
-        data: res,
-      },
-      { status: 201 }
-    );
-  } catch (error: any) {
-    return new NextResponse(
-      JSON.stringify({
-        status: "error",
-        message: error,
-      }),
-      { status: 500 }
-    );
-  }
-}

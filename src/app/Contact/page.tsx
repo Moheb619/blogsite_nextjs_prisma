@@ -19,7 +19,7 @@ const Contact = () => {
   } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     try {
-      const res = axios.post("api/contacts", data, {
+      const res = axios.post("api/contact", data, {
         headers: {
           "Content-Type": "application/json",
         },

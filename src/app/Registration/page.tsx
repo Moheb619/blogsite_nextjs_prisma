@@ -19,7 +19,7 @@ const Registration = () => {
   } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     try {
-      const res = axios.post("api/contacts", data, {
+      const res = axios.post("api/moreuser", data, {
         headers: {
           "Content-Type": "application/json",
         },
@@ -55,7 +55,7 @@ const Registration = () => {
         </div>
         <div>
           <label className="text-sm">Phone</label>
-          <input type="password" id="password" className="w-full p-3 rounded bg-gray-200" {...register("phone", { required: "Phone is required" })}></input>
+          <input id="password" className="w-full p-3 rounded bg-gray-200" {...register("phone", { required: "Phone is required" })}></input>
           {errors.phone && <p className="text-red-600 text-sm">{errors.phone?.message}</p>}
         </div>
         <button type="submit" className="w-full p-3 text-sm font-bold tracki uppercase rounded bg-black text-white">
