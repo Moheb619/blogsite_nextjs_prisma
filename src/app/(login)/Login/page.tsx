@@ -56,6 +56,11 @@ const Login = () => {
         <div className="space-y-2">
           <h2 className="text-4xl font-bold leadi lg:text-5xl">Log In To Dashboard</h2>
         </div>
+        <div className="space-y-2">
+          <h2 className="text-2xl font-bold leadi lg:text-5xl">Use This ID PASS to login to Dashboard</h2>
+          <p>Email: root@gmail.com</p>
+          <p>Password: root</p>
+        </div>
         <Link href={"/"}>
           <div className="hover:text-red-500">Go To Home Page</div>
         </Link>
