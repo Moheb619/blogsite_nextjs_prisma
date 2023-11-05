@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Link from "next/link";
 // Form input value's types
 type Inputs = {
   email: string;
@@ -55,6 +56,9 @@ const Login = () => {
         <div className="space-y-2">
           <h2 className="text-4xl font-bold leadi lg:text-5xl">Log In To Dashboard</h2>
         </div>
+        <Link href={"/"}>
+          <div className="hover:text-red-500">Go To Home Page</div>
+        </Link>
       </div>
       <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
         <div>

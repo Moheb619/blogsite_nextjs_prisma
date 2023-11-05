@@ -2,6 +2,7 @@
 import Image from "next/image";
 import axios from "axios";
 import { useForm, SubmitHandler } from "react-hook-form";
+import Link from "next/link";
 
 // Form input value's types
 type Inputs = {
@@ -36,6 +37,9 @@ const Registration = () => {
         <div className="space-y-2">
           <h2 className="text-4xl font-bold leadi lg:text-5xl">Register User</h2>
         </div>
+        <Link href={"/"}>
+          <div className="hover:text-red-500">Go To Home Page</div>
+        </Link>
       </div>
       <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
         <div>
